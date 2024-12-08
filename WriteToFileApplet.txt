@@ -1,0 +1,40 @@
+package LALU;
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+
+@SuppressWarnings("removal")
+public class WriteToFileApplet extends Applet implements ActionListener {
+    TextArea textArea;
+    TextField fileNameField;
+    Button saveButton;
+
+    public void init() {
+        Label label = new Label("File Name:");
+        fileNameField = new TextField(20);
+        saveButton = new Button("Save to File");
+        textArea = new TextArea(10, 30);
+
+        saveButton.addActionListener(this);
+
+        add(label);
+        add(fileNameField);
+        add(saveButton);
+        add(textArea);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        String fileName = fileNameField.getText();
+        String content = textArea.getText();
+
+        try (FileWriter writer = new FileWriter(fileName)) {
+            writer.write(content);
+            showStatus("File saved successfully!");
+        } catch (IOException ex) {
+            showStatus("Error saving file: " + ex.getMessage());
+        }
+    }
+}
+

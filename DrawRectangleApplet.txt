@@ -1,0 +1,47 @@
+package LALU;
+
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.*;
+
+@SuppressWarnings("removal")
+public class DrawRectangleApplet extends Applet implements MouseListener, MouseMotionListener {
+    int startX, startY, endX, endY;
+
+    public void init() {
+        addMouseListener(this);
+        addMouseMotionListener(this);
+    }
+
+    public void paint(Graphics g) {
+        int width = Math.abs(endX - startX);
+        int height = Math.abs(endY - startY);
+        int x = Math.min(startX, endX);
+        int y = Math.min(startY, endY);
+        g.drawRect(x, y, width, height);
+    }
+
+    public void mousePressed(MouseEvent e) {
+        startX = e.getX();
+        startY = e.getY();
+    }
+
+    public void mouseReleased(MouseEvent e) {
+        endX = e.getX();
+        endY = e.getY();
+        repaint();
+    }
+
+    public void mouseDragged(MouseEvent e) {
+        endX = e.getX();
+        endY = e.getY();
+        repaint();
+    }
+
+    // Unused methods
+    public void mouseClicked(MouseEvent e) {}
+    public void mouseEntered(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
+    public void mouseMoved(MouseEvent e) {}
+}
+
