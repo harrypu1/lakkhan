@@ -1,4 +1,3 @@
-package external;
 
 // Base class (Superclass) 
 class SuperClass { 
