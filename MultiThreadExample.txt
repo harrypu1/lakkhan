@@ -1,4 +1,3 @@
-package external;
 
 class CustomThread extends Thread { 
 public CustomThread(String name) { 
