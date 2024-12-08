@@ -1,4 +1,3 @@
-package external;
 
 class SumThread extends Thread { 
     private int number; 
