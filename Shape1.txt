@@ -1,4 +1,3 @@
-package external;
 
 // Interface defining common methods for all shapes 
 interface Shape { 
