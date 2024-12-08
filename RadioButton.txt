@@ -1,4 +1,3 @@
-package external;
 
 /*20 Write a program to create 3 radio buttons named C++, Java and Pascal and add on 
 JPanel. The user is asked to identify which of them is not an OOP language. When the 
